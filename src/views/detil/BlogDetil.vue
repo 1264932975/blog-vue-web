@@ -56,6 +56,7 @@ import blogApi from "@/api/blogApi";
 import {h, nextTick, reactive, ref} from "vue";
 import {changeTitle} from "@/util/ChangeTitle";
 import {Calendar, Management, UserFilled, PriceTag} from "@element-plus/icons-vue"
+import {ElNotification} from "element-plus";
 
 
 changeTitle("博客详情", "博客详情", "博客详情")
@@ -71,15 +72,27 @@ import '@kangc/v-md-editor/lib/plugins/emoji/emoji.css';
 import createLineNumbertPlugin from '@kangc/v-md-editor/lib/plugins/line-number/index';
 import createCopyCodePlugin from '@kangc/v-md-editor/lib/plugins/copy-code/index';
 import '@kangc/v-md-editor/lib/plugins/copy-code/copy-code.css';
-
-
 // highlightjs
-import hljs from 'highlight.js';
-import {ElNotification} from "element-plus";
+import hljs from 'highlight.js/lib/core';
+import json from 'highlight.js/lib/languages/json';
+import java from 'highlight.js/lib/languages/java';
+import xml from 'highlight.js/lib/languages/xml';
+import sql from 'highlight.js/lib/languages/sql';
+import javascript from 'highlight.js/lib/languages/javascript';
+import shell from 'highlight.js/lib/languages/shell';
+import nginx from 'highlight.js/lib/languages/nginx';
+import css from 'highlight.js/lib/languages/css';
 
+hljs.registerLanguage('json', json);
+hljs.registerLanguage('java', java);
+hljs.registerLanguage('xml', xml);
+hljs.registerLanguage('sql', sql);
+hljs.registerLanguage('js', javascript);
+hljs.registerLanguage('sh', shell);
+hljs.registerLanguage('nginx', nginx);
+hljs.registerLanguage('css', css);
 VMdPreview.use(githubTheme, {
   Hljs: hljs,
-
 });
 VMdPreview.use(createEmojiPlugin());
 VMdPreview.use(createLineNumbertPlugin());
@@ -147,7 +160,6 @@ loadingData();
 .main {
   padding-left: 5rem;
   display: flex;
-
 
 
   .menu {
