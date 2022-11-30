@@ -5,4 +5,5 @@ export default {
     getProject: query => get(`/api/article/open/getProject`, query),
     indexPage: query => post(`/api/article/open/indexPage`, query),
     shoWebSetting: query => get(`/api/webSetting/show`, query),
+    showBlog: query => get(`/api/article/open/show`, query),
 }

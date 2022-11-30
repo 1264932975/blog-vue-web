@@ -1,7 +1,7 @@
 <template>
   <el-row :gutter="12">
     <el-col :span="8" v-for="item in tableData">
-      <el-card shadow="always" class="card" :title="item.name">
+      <el-card shadow="always" class="card" :title="item.name" @click="toDetil(item)">
         <img class="img" :src="proxy.globalUrl.imgUrl+item.cover" v-if="item.cover">
         <img class="img" src="../../public/logo.svg" v-else>
         <div style="padding: 14px">
@@ -23,7 +23,8 @@ import {getCurrentInstance} from "vue";
 const {proxy} = getCurrentInstance();
 
 const props = defineProps({
-  tableData: Object
+  tableData: Object,
+  toDetil: Function
 })
 console.log(props.tableData)
 </script>

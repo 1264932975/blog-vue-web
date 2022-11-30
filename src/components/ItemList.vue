@@ -22,6 +22,14 @@
           </el-icon>
           <a :title="classify">{{ classify }}</a>
         </div>
+        <div v-if="username">
+          <span>|</span>
+          <el-icon>
+            <UserFilled class="userFilled"/>
+          </el-icon>
+          <a :title="username">{{ username }}</a>
+        </div>
+
       </div>
       <div>
         {{ abstract }}
@@ -32,26 +40,17 @@
 
 <script setup>
 
-import {Calendar, Management} from "@element-plus/icons-vue"
+import {Calendar, Management,UserFilled} from "@element-plus/icons-vue"
 import {getCurrentInstance} from "vue";
 
 const {proxy} = getCurrentInstance();
 const props = defineProps({
-  cover: {
-    type: String,
-  },
-  title: {
-    type: String
-  },
-  time: {
-    type: Date
-  },
-  abstract: {
-    type: String
-  },
-  classify: {
-    type: String
-  }
+  cover: String,
+  title: String,
+  time: Date,
+  abstract: String,
+  classify: String,
+  username: String
 })
 </script>
 
@@ -95,6 +94,9 @@ const props = defineProps({
 
   .management {
     color: #d2691e;
+  }
+  .userFilled{
+    color: white;
   }
 }
 

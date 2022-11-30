@@ -2,7 +2,8 @@
   <div class="main">
     <div class="left">
       <ItemList :key="index" v-for="(item,index) in tableData.list" :cover="item.cover" :title="item.bolgTitle"
-                :time="item.updateTime" :abstract="item.bolgAbstract" :classify="item.bolgClassifyName"/>
+                :time="item.updateTime" :abstract="item.bolgAbstract" :classify="item.bolgClassifyName" :username="item.username"
+                @click="toDetil(item)"/>
       <el-pagination
           background="false"
           v-model:current-page="tableData.pageNum"
@@ -39,9 +40,16 @@
 import blogApi from "@/api/blogApi";
 import {reactive, ref} from "vue";
 import {changeTitle} from "@/util/ChangeTitle";
+import router from "@/router";
 
 
 changeTitle("首页", "首页", "博客首页")
+
+
+const toDetil = (data) => {
+  router.push(`/blogDetil/${data.id}`)
+}
+
 
 //分页
 const handleSizeChange = () => {
