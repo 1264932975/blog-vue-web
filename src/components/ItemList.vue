@@ -9,17 +9,19 @@
         {{ title }}
       </div>
       <div class="abstract">
-        <a>
+        <time>
           <el-icon class="calendar">
             <Calendar/>
           </el-icon>
           {{ time }}
-        </a>
-        <span>|</span>
-        <el-icon class="management">
-          <Management/>
-        </el-icon>
-        <a :title="classify">{{ classify }}</a>
+        </time>
+        <div v-if="classify">
+          <span>|</span>
+          <el-icon class="management">
+            <Management/>
+          </el-icon>
+          <a :title="classify">{{ classify }}</a>
+        </div>
       </div>
       <div>
         {{ abstract }}

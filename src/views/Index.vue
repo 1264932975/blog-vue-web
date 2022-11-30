@@ -2,7 +2,7 @@
   <div class="main">
     <div class="left">
       <ItemList :key="index" v-for="(item,index) in tableData.list" :cover="item.cover" :title="item.bolgTitle"
-                :time="item.updateTime" :abstract="item.bolgAbstract" :classify="item.bolgClassifyName"></ItemList>
+                :time="item.updateTime" :abstract="item.bolgAbstract" :classify="item.bolgClassifyName"/>
       <el-pagination
           background="false"
           v-model:current-page="tableData.pageNum"

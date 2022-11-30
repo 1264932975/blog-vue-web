@@ -6,6 +6,7 @@ import 'element-plus/dist/index.css'
 import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
 import './style.css'
 import ItemList from './components/ItemList.vue'
+import RowCard from './components/RowCard.vue'
 
 const app = createApp(App)
 
@@ -18,4 +19,5 @@ app.config.globalProperties.globalUrl = {
     imgUrl: "/api/img/"
 }
 app.component("ItemList", ItemList)
+app.component("RowCard", RowCard)
 app.mount('#app')

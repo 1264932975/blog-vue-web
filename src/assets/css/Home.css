@@ -1,0 +1,48 @@
+.home {
+    background-image: linear-gradient(to bottom, #49b1f5, transparent),
+    linear-gradient(225deg, #ea62ea, transparent),
+    linear-gradient(45deg, #00c4b6, transparent);
+}
+
+
+:deep(.header) {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    height: 60px;
+    padding: 20px;
+    background-color: transparent !important;
+
+
+}
+
+:deep(.el-menu--horizontal) {
+    border: none !important;
+}
+
+:deep(.el-input__wrapper) {
+    background-color: antiquewhite;
+}
+
+.main {
+    height: calc(100vh - 120px);
+    padding-left: 50px;
+    padding-right: 50px;
+    text-align: center;
+    overflow-y: visible;
+}
+
+.footer {
+    border-top: 1px solid;
+    height: 50px;
+    margin-top: 10px;
+    text-align: center;
+    font-size: 16px;
+}
+
+
+.header a {
+    text-decoration: none;
+    color: rgba(229, 26, 26, 0.6);
+    font-weight: bold;
+}

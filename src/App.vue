@@ -2,8 +2,7 @@
   <div class="home">
     <el-container>
       <el-header class="header">
-
-        <div>{{ webData.webName }}</div>
+          <router-link to="/" > {{ webData.webName }}</router-link>
         <el-menu
             :default-active="activeIndex"
             class="el-menu-demo"
@@ -13,33 +12,19 @@
             background-color="transparent"
             active-text-color="#7d28da"
             @select="handleSelect"
-            default-active="1"
+            router
         >
           <div class="flex-grow"/>
           <el-input v-model="search" :prefix-icon="Search" clearable placeholder="请输入博客标题"/>
-          <el-menu-item index="1">
-            <el-icon class="ico-homeFilled">
-              <HomeFilled/>
+          <el-menu-item v-for="item in menuList" :index="item.path">
+            <el-icon>
+              <HomeFilled class="ico-homeFilled" v-if="item.title=='首页'"/>
+              <Management class="ico-management" v-if="item.title=='分类'"/>
+              <Flag class="ico-flag" v-if="item.title=='专题'"/>
+              <Promotion class="ico-promotion" v-if="item.title=='联系站长'"/>
             </el-icon>
-            首页
-          </el-menu-item>
-          <el-menu-item index="2">
-            <el-icon class="ico-management">
-              <Management/>
-            </el-icon>
-            分类
-          </el-menu-item>
-          <el-menu-item index="3">
-            <el-icon class="ico-flag">
-              <Flag/>
-            </el-icon>
-            专题
-          </el-menu-item>
-          <el-menu-item>
-            <el-icon class="ico-promotion">
-              <Promotion/>
-            </el-icon>
-            联系站长
+
+            {{ item.title }}
           </el-menu-item>
         </el-menu>
       </el-header>
@@ -78,6 +63,23 @@ import blogApi from "@/api/blogApi";
 import {reactive, ref} from "vue";
 import {Search, HomeFilled, Management, Flag, Promotion} from "@element-plus/icons-vue"
 
+const menuList = ref([{
+  title: "首页",
+  path: "/"
+}, {
+  title: "分类",
+  path: "/classify"
+}, {
+  title: "专题",
+  path: "/"
+}, {
+  title: "联系站长",
+  path: "/"
+}
+])
+
+
+//图片
 const carouseData = [
   {url: new URL("@/assets/jpg/1.jpg", import.meta.url).href},
   {url: new URL("@/assets/jpg/2.jpg", import.meta.url).href},
@@ -103,7 +105,7 @@ loadingData();
 </script>
 
 <style scoped>
-@import "@/assets/css/Home.less";
+@import "@/assets/css/Home.css";
 
 .ico-homeFilled {
   color: #dc143c;
@@ -118,6 +120,6 @@ loadingData();
 }
 
 .ico-promotion {
-  color: #00ced1;
+  color: #0b6567;
 }
 </style>
