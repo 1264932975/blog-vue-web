@@ -2,7 +2,7 @@
   <div class="home">
     <el-container>
       <el-header class="header">
-          <router-link to="/" > {{ webData.webName }}</router-link>
+        <router-link to="/"> {{ webData.webName }}</router-link>
         <el-menu
             :default-active="activeIndex"
             class="el-menu-demo"
@@ -21,18 +21,25 @@
               <HomeFilled class="ico-homeFilled" v-if="item.title=='首页'"/>
               <Management class="ico-management" v-if="item.title=='分类'"/>
               <Flag class="ico-flag" v-if="item.title=='专题'"/>
-              <Promotion class="ico-promotion" v-if="item.title=='联系站长'"/>
             </el-icon>
-
             {{ item.title }}
           </el-menu-item>
+          <el-menu-item>
+            <div @click="callAdmin">
+              <el-icon>
+                <Promotion class="ico-promotion"/>
+              </el-icon>
+              联系站长
+            </div>
+          </el-menu-item>
+
         </el-menu>
       </el-header>
       <el-main class="main">
 
-        <el-carousel pause-on-hover="false" arrow="never" indicator-position="none" height="50vh">
+        <el-carousel pause-on-hover="false" arrow="never" indicator-position="none" height="76vh">
           <el-carousel-item v-for="itme in carouseData" :key="index">
-            <img :src="itme.url" style="width: 70%;height: 100%;opacity: 0.8">
+            <img :src="itme.url" style="width: 100%;height: 100%;">
           </el-carousel-item>
         </el-carousel>
         <router-view/>
@@ -60,8 +67,17 @@
 
 <script setup>
 import blogApi from "@/api/blogApi";
-import {reactive, ref} from "vue";
+import {h, reactive, ref} from "vue";
 import {Search, HomeFilled, Management, Flag, Promotion} from "@element-plus/icons-vue"
+import {ElNotification} from 'element-plus'
+
+const callAdmin = () => {
+  ElNotification({
+    title: '站长联系方式',
+    message: h('i', 'zhiqishen.126@foxmail.com'),
+  })
+}
+
 
 const menuList = ref([{
   title: "首页",
@@ -71,10 +87,7 @@ const menuList = ref([{
   path: "/classify"
 }, {
   title: "专题",
-  path: "/"
-}, {
-  title: "联系站长",
-  path: "/"
+  path: "/project"
 }
 ])
 

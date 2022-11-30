@@ -15,7 +15,7 @@
       />
     </div>
     <div class="right">
-      <el-card  style="margin: 20px;background-color: transparent;border: none">
+      <el-card style="margin: 20px;background-color: transparent;border: none">
         <img
             src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
             style="width: 50%;height: 50%"
@@ -38,6 +38,10 @@
 <script setup>
 import blogApi from "@/api/blogApi";
 import {reactive, ref} from "vue";
+import {changeTitle} from "@/util/ChangeTitle";
+
+
+changeTitle("首页", "首页", "博客首页")
 
 //分页
 const handleSizeChange = () => {

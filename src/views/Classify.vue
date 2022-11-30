@@ -6,6 +6,8 @@
 import {reactive} from "vue";
 import blogApi from "@/api/blogApi";
 import RowCard from "@/components/RowCard.vue";
+import {changeTitle} from "@/util/ChangeTitle";
+changeTitle("分类", "博客分类", "博客分类")
 
 //获取数据
 const tableData = reactive({})
