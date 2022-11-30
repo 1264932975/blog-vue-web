@@ -116,7 +116,6 @@ const createTop = () => {
 //跳转目录//锚点
 const heightTitle = ref(0)
 const handleAnchorClick = (item, index) => {
-  console.log(item)
   const heading = preview.value.$el.querySelector(`[data-v-md-line="${item.lineIndex}"]`);
   if (heading) {
     heading.scrollIntoView({behavior: "smooth", block: "start"})

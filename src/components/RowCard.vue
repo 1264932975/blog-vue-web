@@ -26,7 +26,6 @@ const props = defineProps({
   tableData: Object,
   toDetil: Function
 })
-console.log(props.tableData)
 </script>
 
 <style lang="less" scoped>
