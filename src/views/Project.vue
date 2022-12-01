@@ -1,5 +1,5 @@
 <template>
-  <RowCard :table-data="tableData.list"></RowCard>
+  <RowCard :table-data="tableData.list" :to-detil="toDetil"></RowCard>
   <div class="pagination">
     <el-pagination
         background="false"
@@ -19,8 +19,15 @@
 import blogApi from "@/api/blogApi";
 import {reactive} from "vue";
 import {changeTitle} from "@/util/ChangeTitle";
+import router from "@/router";
 
 changeTitle("专题", "博客专题", "博客专题")
+
+//点击方法
+const toDetil = (data) => {
+  router.push(`/projectDetil/${data.id}`)
+}
+
 
 //分页
 const handleSizeChange = () => {

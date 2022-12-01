@@ -1,20 +1,27 @@
 <template>
-
+  <ItemList :table-data="tableData" :loadingdata="loadingData"/>
 </template>
 
-<script>
-const loadingData = () => {
-  let parames = {
-    id: rowid.value,
-    pageNum: blogData.value.pageNum,
-    pageSize: blogData.value.pageSize,
-  }
+<script setup>
+import {useRoute} from "vue-router";
+import {reactive} from "vue";
+import blogApi from "@/api/blogApi";
+import ItemList from "@/components/ItemList.vue";
+
+const route = useRoute()
+
+const tableData = reactive({})
+const loadingData = (parames) => {
+  parames.id = route.params.id
+  console.log(parames)
   blogApi.indexProjectPage(parames).then((res) => {
     if (res) {
-      blogData.value = JSON.parse(JSON.stringify(res.data))
+      Object.assign(tableData, res.data)
+      console.log(res)
     }
   })
 }
+loadingData({})
 </script>
 
 <style scoped>

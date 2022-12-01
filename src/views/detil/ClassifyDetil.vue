@@ -1,5 +1,5 @@
 <template>
-  <ItemList :table-data="tableData" :loadingdata="loadingdata"/>
+  <ItemList :table-data="tableData" :loadingdata="loadingData"/>
 </template>
 
 <script setup>
@@ -12,7 +12,7 @@ const route = useRoute()
 
 
 const tableData = reactive({})
-const loadingdata = (parames) => {
+const loadingData = (parames) => {
   parames.bolgClassifyId = route.params.id
   console.log(parames)
   blogApi.indexPage(parames).then((res) => {
@@ -22,7 +22,7 @@ const loadingdata = (parames) => {
   })
   console.log(tableData)
 }
-loadingdata({})
+loadingData({})
 
 </script>
 
