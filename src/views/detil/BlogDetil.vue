@@ -36,7 +36,7 @@
     </div>
 
     <div class="menu">
-      <span>目录</span>
+      <h1>目录</h1>
       <div
           v-for="(item,index) in titleList"
           :style="{paddingLeft:  item.indent*15+'px' }"

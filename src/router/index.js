@@ -4,6 +4,7 @@ import classify from "@/views/Classify.vue";
 import project from "@/views/Project.vue";
 import classifyDetil from "@/views/detil/ClassifyDetil.vue";
 import blogDetil from "@/views/detil/BlogDetil.vue";
+import projectDetil from "@/views/detil/ProjectDetil.vue";
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -27,6 +28,10 @@ const router = createRouter({
         {
             path: "/blogDetil/:id",
             component: blogDetil
+        },
+        {
+            path: "/projectDetil/:id",
+            component: projectDetil
         }
     ]
 })
