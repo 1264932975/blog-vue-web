@@ -14,13 +14,11 @@ const route = useRoute()
 const tableData = reactive({})
 const loadingData = (parames) => {
   parames.bolgClassifyId = route.params.id
-  console.log(parames)
   blogApi.indexPage(parames).then((res) => {
     if (res) {
       Object.assign(tableData, res.data)
     }
   })
-  console.log(tableData)
 }
 loadingData({})
 

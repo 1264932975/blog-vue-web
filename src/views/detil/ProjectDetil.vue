@@ -13,11 +13,9 @@ const route = useRoute()
 const tableData = reactive({})
 const loadingData = (parames) => {
   parames.id = route.params.id
-  console.log(parames)
   blogApi.indexProjectPage(parames).then((res) => {
     if (res) {
       Object.assign(tableData, res.data)
-      console.log(res)
     }
   })
 }
