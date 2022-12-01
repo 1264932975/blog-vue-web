@@ -36,11 +36,11 @@
       </el-header>
       <el-main class="main">
 
-        <el-carousel pause-on-hover="false" arrow="never" indicator-position="none" height="76vh">
-          <el-carousel-item v-for="itme in carouseData" :key="index">
-            <img :src="itme.url" style="width: 100%;height: 100%;">
-          </el-carousel-item>
-        </el-carousel>
+<!--        <el-carousel pause-on-hover="false" arrow="never" indicator-position="none" height="76vh">-->
+<!--          <el-carousel-item v-for="itme in carouseData" :key="index">-->
+<!--            <img :src="itme.url" style="width: 100%;height: 100%;">-->
+<!--          </el-carousel-item>-->
+<!--        </el-carousel>-->
         <router-view/>
 
       </el-main>
@@ -92,23 +92,23 @@ const menuList = ref([{
 
 
 //图片
-const carouseData = [
-  {url: new URL("@/assets/jpg/1.jpg", import.meta.url).href},
-  {url: new URL("@/assets/jpg/2.jpg", import.meta.url).href},
-  {url: new URL("@/assets/jpg/3.jpg", import.meta.url).href},
-  {url: new URL("@/assets/jpg/4.jpg", import.meta.url).href},
-  {url: new URL("@/assets/jpg/5.jpg", import.meta.url).href},
-  {url: new URL("@/assets/jpg/6.jpg", import.meta.url).href},
-  {url: new URL("@/assets/jpg/7.jpg", import.meta.url).href},
-  {url: new URL("@/assets/jpg/8.jpg", import.meta.url).href},
-  {url: new URL("@/assets/jpg/9.jpg", import.meta.url).href},
-]
+// const carouseData = [
+//   {url: new URL("@/assets/jpg/1.jpg", import.meta.url).href},
+//   {url: new URL("@/assets/jpg/2.jpg", import.meta.url).href},
+//   {url: new URL("@/assets/jpg/3.jpg", import.meta.url).href},
+//   {url: new URL("@/assets/jpg/4.jpg", import.meta.url).href},
+//   {url: new URL("@/assets/jpg/5.jpg", import.meta.url).href},
+//   {url: new URL("@/assets/jpg/6.jpg", import.meta.url).href},
+//   {url: new URL("@/assets/jpg/7.jpg", import.meta.url).href},
+//   {url: new URL("@/assets/jpg/8.jpg", import.meta.url).href},
+//   {url: new URL("@/assets/jpg/9.jpg", import.meta.url).href},
+// ]
 
 
 
 //获取网站信息
 const webData = reactive({})
-const loadingData = () => {
+const loadingData =async () => {
   blogApi.shoWebSetting().then((res) => {
     if (res) {
       Object.assign(webData, res.data)

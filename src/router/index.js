@@ -1,4 +1,4 @@
-import {createRouter, createWebHistory} from 'vue-router'
+import {createRouter, createWebHashHistory, createWebHistory} from 'vue-router'
 import index from "@/views/Index.vue";
 import classify from "@/views/Classify.vue";
 import project from "@/views/Project.vue";
@@ -8,7 +8,7 @@ import projectDetil from "@/views/detil/ProjectDetil.vue";
 import NoteFund from "@/views/error/NoteFund.vue";
 
 const router = createRouter({
-    history: createWebHistory(import.meta.env.BASE_URL),
+    history: createWebHashHistory(import.meta.env.BASE_URL),
     routes: [
         {path: '/:path(.*)', component: NoteFund},
         {

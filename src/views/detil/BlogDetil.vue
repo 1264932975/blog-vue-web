@@ -145,7 +145,10 @@ const loadingData = () => {
     if (res) {
       Object.assign(blogData, res.data)
       changeTitle(blogData.bolgTitle, blogData.bolgTag, blogData.bolgAbstract)
-      blogData.bolgTag = blogData.bolgTag.split(',')
+      try {
+        blogData.bolgTag = blogData.bolgTag.split(',')
+      } catch (e) {
+      }
       nextTick(() => {
         createTop()
       })
