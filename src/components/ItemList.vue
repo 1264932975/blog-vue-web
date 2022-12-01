@@ -1,4 +1,7 @@
 <template>
+  <div class="search">
+    <el-input v-model="title" :prefix-icon="Search" clearable placeholder="请输入博客标题" @change="reloadData"/>
+  </div>
   <div class="main" :key="index" v-for="(item,index) in tableData.list" @click="toDetil(item.id)"
        v-if="tableData.total>0">
     <div class="cover" :title="item.title">
@@ -38,7 +41,7 @@
     </div>
   </div>
   <el-empty description="哦豁！这个地方是空的！" v-else/>
-  <div class="page">
+  <div class="page" v-if="tableData.total>0">
     <el-pagination
         background="false"
         v-model:current-page="tableData.pageNum"
@@ -46,8 +49,8 @@
         :page-sizes="[10, 15, 30, 50]"
         layout="total, sizes, prev, pager, next, jumper"
         :total="tableData.total"
-        @size-change="handleSizeChange"
-        @current-change="handleCurrentChange"
+        @size-change="reloadData"
+        @current-change="reloadData"
     />
   </div>
 
@@ -56,9 +59,11 @@
 
 <script setup>
 
-import {Calendar, Management, UserFilled} from "@element-plus/icons-vue"
-import {getCurrentInstance} from "vue";
+import {Calendar, Management, UserFilled, Search} from "@element-plus/icons-vue"
+import {getCurrentInstance, ref} from "vue";
 import router from "@/router";
+
+const title = ref()
 
 const {proxy} = getCurrentInstance();
 const props = defineProps({
@@ -69,18 +74,26 @@ const toDetil = (id) => {
   router.push(`/blogDetil/${id}`)
 }
 
-//分页
-const handleSizeChange = () => {
-  props.loadingdata({pageSize: props.tableData.pageSize, pageNum: props.tableData.pageNum})
-}
-const handleCurrentChange = () => {
-  props.loadingdata({pageSize: props.tableData.pageSize, pageNum: props.tableData.pageNum})
+const reloadData = () => {
+  props.loadingdata({pageSize: props.tableData.pageSize, pageNum: props.tableData.pageNum, bolgTitle: title.value})
 }
 
 
 </script>
 
 <style lang="less" scoped>
+
+.search {
+  padding-top: 1rem;
+  padding-left: 80%;
+  width: 20%;
+
+  :deep(.el-input__wrapper) {
+    background-color: antiquewhite;
+  }
+}
+
+
 .main {
   display: flex;
   cursor: pointer;

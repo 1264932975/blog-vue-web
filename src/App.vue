@@ -15,7 +15,6 @@
             router
         >
           <div class="flex-grow"/>
-          <el-input v-model="search" :prefix-icon="Search" clearable placeholder="请输入博客标题"/>
           <el-menu-item v-for="item in menuList" :index="item.path">
             <el-icon>
               <HomeFilled class="ico-homeFilled" v-if="item.title=='首页'"/>
@@ -104,7 +103,9 @@ const carouseData = [
   {url: new URL("@/assets/jpg/8.jpg", import.meta.url).href},
   {url: new URL("@/assets/jpg/9.jpg", import.meta.url).href},
 ]
-const search = ref()
+
+
+
 //获取网站信息
 const webData = reactive({})
 const loadingData = () => {
