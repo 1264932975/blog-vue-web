@@ -31,10 +31,10 @@ const toDetil = (data) => {
 
 //分页
 const handleSizeChange = () => {
-  loadingdata({pageSize: tableData.pageSize, pageNum: tableData.pageNum})
+  loadingData({pageSize: tableData.pageSize, pageNum: tableData.pageNum})
 }
 const handleCurrentChange = () => {
-  loadingdata({pageSize: tableData.pageSize, pageNum: tableData.pageNum})
+  loadingData({pageSize: tableData.pageSize, pageNum: tableData.pageNum})
 }
 
 //取数
