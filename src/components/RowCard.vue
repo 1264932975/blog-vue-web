@@ -5,10 +5,16 @@
         <img class="img" :src="proxy.globalUrl.imgUrl+item.cover" v-if="item.cover">
         <img class="img" src="../../public/logo.svg" v-else>
         <div style="padding: 14px">
-          <span>名称:{{ item.name }}</span>
+          <span style="font-weight: bold">专题名称:</span>
+          <span>{{ item.name }}</span>
           <div class="bottom">
-            <div :title="item.about">介绍：{{ item.about }}</div>
-            <div>文章数量:{{ item.count }}</div>
+            <div :title="item.about">
+              <span style="font-weight: bold">介绍：</span>
+              {{ item.about }}
+            </div>
+            <div><span style="font-weight: bold">文章数量:</span>
+              {{ item.count }}
+            </div>
           </div>
         </div>
       </el-card>
@@ -32,14 +38,14 @@ const props = defineProps({
 .card {
   margin: 20px;
   background-color: transparent;
-  width: 25rem;
-  height: 20rem;
+  width: 23rem;
+  height: 23rem;
   border: none;
   cursor: pointer;
 
   .img {
-    width: 100%;
-    height: 100%;
+    width: 13rem;
+    height: 13rem;
   }
 }
 </style>
