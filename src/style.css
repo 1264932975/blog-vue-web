@@ -1,4 +1,8 @@
 body {
     margin: 0;
     padding: 0;
+
+    /*哀悼灰色*/
+    filter:progid:DXImageTransform.Microsoft.BasicImage(graysale=1);
+    -webkit-filter: grayscale(100%);
 }

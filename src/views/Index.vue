@@ -4,8 +4,8 @@
       <ItemList :table-data="tableData" :loadingdata="loadingdata"/>
 
     </div>
-    <div class="right" v-for="item in userList">
-      <el-card style="margin: 20px;background-color: transparent;border: none">
+    <div class="right" >
+      <el-card style="margin: 20px;background-color: transparent;border: none" v-for="item in userList">
         <div class="u-img">
           <img
               :src="proxy.globalUrl.imgUrl+item.cover"

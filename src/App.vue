@@ -2,7 +2,7 @@
   <div class="home">
     <el-container>
       <el-header class="header">
-        <router-link to="/"> {{ webData.webName }}</router-link>
+        <a @click="toHome"> {{ webData.webName }}</a>
         <el-menu
             :default-active="activeIndex"
             class="el-menu-demo"
@@ -15,7 +15,7 @@
             router
         >
           <div class="flex-grow"/>
-          <audio controls autoplay>
+          <audio controls autoplay @canplay="downVico" ref="audioRef">
             <source src="@/assets/mp3/bj.mp3"/>
           </audio>
 
@@ -40,8 +40,9 @@
         </el-menu>
       </el-header>
       <el-main class="main">
-
-        <router-view/>
+        <el-scrollbar>
+          <router-view/>
+        </el-scrollbar>
 
       </el-main>
       <el-footer class="footer">
@@ -69,6 +70,19 @@ import blogApi from "@/api/blogApi";
 import {h, reactive, ref} from "vue";
 import {HomeFilled, Management, Flag, Promotion} from "@element-plus/icons-vue"
 import {ElNotification} from 'element-plus'
+import router from "@/router";
+
+const audioRef=ref()
+const downVico=()=>{
+  audioRef.value.volume=0.1
+}
+
+
+
+const toHome = () => {
+  router.replace({path: "/"})
+  location.reload()
+}
 
 const callAdmin = () => {
   ElNotification({

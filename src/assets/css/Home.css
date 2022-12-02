@@ -12,8 +12,6 @@
     height: 60px;
     padding: 20px;
     background-color: transparent !important;
-
-
 }
 
 :deep(.el-menu--horizontal) {
