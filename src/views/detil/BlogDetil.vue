@@ -166,10 +166,10 @@ loadingData();
 
 
   .menu {
-    width: 20rem;
+    width: 19rem;
     text-align: left;
     position: fixed;
-    right: 1rem;
+    right: 0.1rem;
     top: 20vh;
 
     .title-active {
