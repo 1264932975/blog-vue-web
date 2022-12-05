@@ -19,4 +19,10 @@
 >12. main.js
 >13. style.css  
 
+自定义工具类位置：/src/util  
+接口api：/src/api
+
 项目结构过于简单，不在此进行多余赘述
+如有任务问题可联系：zhiqishen.126@foxmail.com
+
+项目展示00shen.space
