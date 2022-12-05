@@ -32,8 +32,8 @@
   </div>
   <div class="main">
     <div class="markDown">
-      <p style="text-align: center">生活不易，转载请注明出处，感谢大佬！</p><hr/>
       <v-md-preview ref="preview" :text="blogData.bolgText" @copy-code-success="handleCopyCodeSuccess"></v-md-preview>
+      <p style="text-align: center">生活不易，转载请注明出处，感谢大佬！</p>
     </div>
 
     <div class="menu">
