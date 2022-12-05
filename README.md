@@ -1,30 +1,22 @@
 # blog-vue-web
+构建工具vite+vue3
 
-This template should help get you started developing with Vue 3 in Vite.
+开发环境：node16
 
-## Recommended IDE Setup
+# 目录结构
+**按照标准vue项目目录机构构建，api为http接口**
+>1. public
+>2. src
+>   3. api
+>   4. assets
+>      5. css
+>      6. mp3
+>   7. compontents
+>   8. router
+>   9. util
+>   10. views
+>11. App.vue
+>12. main.js
+>13. style.css  
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
-# blog-vue-web
+项目结构过于简单，不在此进行多余赘述
