@@ -3,5 +3,5 @@ body {
     padding: 0;
 
     /*哀悼灰色滤镜*/
-    -webkit-filter: grayscale(100%);
+    /*-webkit-filter: grayscale(100%);*/
 }
