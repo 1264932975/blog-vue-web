@@ -68,7 +68,7 @@ loadingdata({});
 }
 
 .main .right {
-  width: 400px;
+  width: 350px;
 }
 
 .main .left {

@@ -103,8 +103,8 @@ const reloadData = () => {
 }
 
 .main .cover {
-  width: 180px;
-  height: 180px;
+  width: 140px;
+  height: 140px;
 }
 
 .main .cover .img {
